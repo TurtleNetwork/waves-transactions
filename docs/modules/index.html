@@ -322,13 +322,13 @@
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.ialiastransaction.html">IAliasTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { alias } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { alias } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'example seed phrase'</span>
 
 <span class="hljs-keyword">const</span> params = {
   <span class="hljs-attr">alias</span>: <span class="hljs-string">'new_alias'</span>,
-  <span class="hljs-attr">chainId</span>: <span class="hljs-string">'W'</span>,
+  <span class="hljs-attr">chainId</span>: <span class="hljs-string">'L'</span>,
   <span class="hljs-comment">//senderPublicKey: 'by default derived from seed',</span>
   <span class="hljs-comment">//timestamp: Date.now(),</span>
   <span class="hljs-comment">//fee: 100000,</span>
@@ -439,7 +439,7 @@
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.iburntransaction.html">IBurnTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { burn } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { burn } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'example seed phrase'</span>
 
@@ -449,7 +449,7 @@
   <span class="hljs-comment">//senderPublicKey: 'by default derived from seed',</span>
   <span class="hljs-comment">//timestamp: Date.now(),</span>
   <span class="hljs-comment">//fee: 100000,</span>
-  <span class="hljs-comment">//chainId: 'W',</span>
+  <span class="hljs-comment">//chainId: 'L',</span>
 }
 
 <span class="hljs-keyword">const</span> signedBurnTx = burn(params, seed)</code></pre>
@@ -528,7 +528,7 @@
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.icancelleasetransaction.html">ICancelLeaseTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { cancelLease } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { cancelLease } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'example seed phrase'</span>
 
@@ -537,7 +537,7 @@
   <span class="hljs-comment">//senderPublicKey: 'by default derived from seed',</span>
   <span class="hljs-comment">//timestamp: Date.now(),</span>
   <span class="hljs-comment">//fee: 100000,</span>
-  <span class="hljs-comment">//chainId: 'W'</span>
+  <span class="hljs-comment">//chainId: 'L'</span>
 }
 
 <span class="hljs-keyword">const</span> signedCancelLeaseTx = cancelLease(params, seed)</code></pre>
@@ -747,7 +747,7 @@
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.idatatransaction.html">IDataTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { data } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { data } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'example seed phrase'</span>
 
@@ -887,7 +887,7 @@
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.iinvokescripttransaction.html">IInvokeScriptTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js">const { invokeScript } = require(&#39;@waves/waves-transactions&#39;)
+								<pre><code class="language-js">const { invokeScript } = require(&#39;@turtlenetwork/waves-transactions&#39;)
 
 const seed = &#39;create genesis wallet devnet-0&#39;
 
@@ -1007,7 +1007,7 @@ console.log(signedInvokeScriptTx)
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.iissuetransaction.html">IIssueTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { issue } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { issue } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'seed phrase of fifteen words'</span>
 
@@ -1020,7 +1020,7 @@ console.log(signedInvokeScriptTx)
   <span class="hljs-comment">//decimals: 8</span>
   <span class="hljs-comment">//timestamp: Date.now(),</span>
   <span class="hljs-comment">//fee: 100000000,</span>
-  <span class="hljs-comment">//chainId: 'W'</span>
+  <span class="hljs-comment">//chainId: 'L'</span>
 }
 
 <span class="hljs-keyword">const</span> signedIssueTx = issue(params, seed)
@@ -1103,7 +1103,7 @@ console.log(signedInvokeScriptTx)
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.ileasetransaction.html">ILeaseTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { lease } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { lease } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'example seed phrase'</span>
 
@@ -1190,7 +1190,7 @@ console.log(signedInvokeScriptTx)
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.imasstransfertransaction.html">IMassTransferTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { massTransfer } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { massTransfer } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'example seed phrase'</span>
 
@@ -1293,7 +1293,7 @@ console.log(signedInvokeScriptTx)
 								<p>You can use this function with multiple seeds. In this case it will sign order accordingly and will add one proof per seed.
 								Also you can use already signed [[Order]] as a second agrument.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { order } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { order } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'b716885e9ba64442b4f1263c8e2d8671e98b800c60ec4dc2a27c83e5f9002b18'</span>
 
@@ -1385,7 +1385,7 @@ console.log(signedInvokeScriptTx)
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.ireissuetransaction.html">IReissueTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { reissue } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { reissue } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'example seed phrase'</span>
 
@@ -1396,7 +1396,7 @@ console.log(signedInvokeScriptTx)
   <span class="hljs-comment">//senderPublicKey: 'by default derived from seed',</span>
   <span class="hljs-comment">//timestamp: Date.now(),</span>
   <span class="hljs-comment">//fee: 100000000,</span>
-  <span class="hljs-comment">//chainId: 'W'</span>
+  <span class="hljs-comment">//chainId: 'L'</span>
 }
 
 <span class="hljs-keyword">const</span> signedReissueTx = reissue(params, seed)</code></pre>
@@ -1630,7 +1630,7 @@ console.log(signedInvokeScriptTx)
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.isetscripttransaction.html">ISetScriptTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { setScript } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { setScript } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'example seed phrase'</span>
 
@@ -1639,7 +1639,7 @@ console.log(signedInvokeScriptTx)
   <span class="hljs-comment">//senderPublicKey: 'by default derived from seed',</span>
   <span class="hljs-comment">//timestamp: Date.now(),</span>
   <span class="hljs-comment">//fee: 100000,</span>
-  <span class="hljs-comment">//chainId: 'W'</span>
+  <span class="hljs-comment">//chainId: 'L'</span>
 }
 
 <span class="hljs-keyword">const</span> signedSetScriptTx = setScript(params, seed)</code></pre>
@@ -1750,7 +1750,7 @@ console.log(signedInvokeScriptTx)
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.isponsorshiptransaction.html">ISponsorshipTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { sponsorship } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { sponsorship } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'example seed phrase'</span>
 
@@ -1760,7 +1760,7 @@ console.log(signedInvokeScriptTx)
   <span class="hljs-comment">//senderPublicKey: 'by default derived from seed',</span>
   <span class="hljs-comment">//timestamp: Date.now(),</span>
   <span class="hljs-comment">//fee: 100000,</span>
-  <span class="hljs-comment">//chainId: 'W',</span>
+  <span class="hljs-comment">//chainId: 'L',</span>
 }
 
 <span class="hljs-keyword">const</span> signedSponsorshipTx = sponsorship(params, seed)</code></pre>
@@ -1906,11 +1906,11 @@ console.log(signedInvokeScriptTx)
 								<p>You can use this function with multiple seeds. In this case it will sign transaction accordingly and will add one proof per seed.
 								Also you can use already formed <a href="../interfaces/index.itransfertransaction.html">ITransferTransaction</a> instead of params.</p>
 								<h3 id="usage">Usage</h3>
-								<pre><code class="language-js"><span class="hljs-keyword">const</span> { transfer } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+								<pre><code class="language-js"><span class="hljs-keyword">const</span> { transfer } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'example seed phrase'</span>
 
-<span class="hljs-comment">//Transfering 1 WAVES</span>
+<span class="hljs-comment">//Transfering 1 TN</span>
 <span class="hljs-keyword">const</span> params = {
   <span class="hljs-attr">amount</span>: <span class="hljs-number">100000000</span>,
   <span class="hljs-attr">recipient</span>: <span class="hljs-string">'3P23fi1qfVw6RVDn4CH2a5nNouEtWNQ4THs'</span>,

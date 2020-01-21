@@ -71,5 +71,5 @@ export function fee(params: IBasicParams, def: number) {
 
 export function normalizeAssetId(assetId: string | null) {
   assetId = assetId || null
-  return assetId === 'WAVES' ? null : assetId
+  return assetId === 'TN' ? null : assetId
 }

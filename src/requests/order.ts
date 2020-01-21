@@ -17,7 +17,7 @@ import { validate } from '../validators'
  *
  * ### Usage
  * ```js
- * const { order } = require('@waves/waves-transactions')
+ * const { order } = require('@turtlenetwork/waves-transactions')
  *
  * const seed = 'b716885e9ba64442b4f1263c8e2d8671e98b800c60ec4dc2a27c83e5f9002b18'
  *
@@ -89,7 +89,7 @@ export function order(paramsOrOrder: any, seed?: TSeedTypes): TOrder & WithId {
   }
 
   if (ord.version === 3) {
-    ord.matcherFeeAssetId = paramsOrOrder.matcherFeeAssetId === 'WAVES' ? null : paramsOrOrder.matcherFeeAssetId
+    ord.matcherFeeAssetId = paramsOrOrder.matcherFeeAssetId === 'TN' ? null : paramsOrOrder.matcherFeeAssetId
   }
 
   const bytes = binary.serializeOrder(ord)

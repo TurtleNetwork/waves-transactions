@@ -1,5 +1,5 @@
 {
-  "name": "@waves/waves-transactions",
+  "name": "@turtlenetwork/waves-transactions",
   "version": "3.25.0",
   "description": "Build and sign(multi-sign) transactions for Waves blockchain.",
   "keywords": [

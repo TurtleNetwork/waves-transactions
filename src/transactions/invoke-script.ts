@@ -31,7 +31,7 @@ export function invokeScript(paramsOrTx: any, seed?: TSeedTypes): IInvokeScriptT
     dApp: paramsOrTx.dApp,
     call: paramsOrTx.call && {args: [], ...paramsOrTx.call},
     payment: mapPayment(paramsOrTx.payment),
-    fee: fee(paramsOrTx, 500000),
+    fee: fee(paramsOrTx, 1000000),
     feeAssetId: normalizeAssetId(paramsOrTx.feeAssetId),
     timestamp: paramsOrTx.timestamp || Date.now(),
     chainId: networkByte(paramsOrTx.chainId, 87),
@@ -51,4 +51,4 @@ export function invokeScript(paramsOrTx: any, seed?: TSeedTypes): IInvokeScriptT
 
 const mapPayment = (payments?: IInvokeScriptPayment[]): IInvokeScriptPayment[] => payments == null
   ? []
-  : payments.map(pmt => ({...pmt, assetId: pmt.assetId === 'WAVES' ? null : pmt.assetId}))
+  : payments.map(pmt => ({...pmt, assetId: pmt.assetId === 'TN' ? null : pmt.assetId}))

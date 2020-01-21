@@ -100,14 +100,14 @@ export function verifyCustomData(data: TSignedData): boolean {
 }
 
 export function verifyAuthData(authData: { signature: string, publicKey: string, address: string }, params: IAuthParams, chainId?: string|number): boolean {
-  chainId = chainId || 'W'
+  chainId = chainId || 'L'
   const bytes = serializeAuthData(params)
   const myAddress = address({ publicKey: authData.publicKey }, chainId)
   return myAddress === authData.address && verifySignature(authData.publicKey, bytes, authData.signature)
 }
 
 export function verifyWavesAuthData(authData: { signature: string, publicKey: string, address: string, timestamp: number }, params: {publicKey: string, timestamp: number}, chainId?: string|number): boolean {
-  chainId = chainId || 'W'
+  chainId = chainId || 'L'
   const bytes = serializeWavesAuthData(params)
   const myAddress = address({ publicKey: authData.publicKey }, chainId)
   return myAddress === authData.address && verifySignature(authData.publicKey, bytes, authData.signature)
@@ -152,7 +152,7 @@ export function submitOrder(ord: TOrder, opts: any) {
  * @param matcherUrl - matcher address to send order cancel to. E.g. https://matcher.waves.exchange/
  */
 export function cancelSubmittedOrder(co: ICancelOrder, amountAsset: string | null, priceAsset: string | null, matcherUrl: string) {
-  return axios.post(`matcher/orderbook/${amountAsset || 'WAVES'}/${priceAsset || 'WAVES'}/cancel`, JSON.stringify(co), {
+  return axios.post(`matcher/orderbook/${amountAsset || 'TN'}/${priceAsset || 'TN'}/cancel`, JSON.stringify(co), {
     baseURL: matcherUrl,
     headers: { 'content-type': 'application/json' },
   })

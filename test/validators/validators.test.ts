@@ -83,8 +83,8 @@ describe('Validators', () => {
             expect(validators.isValidAddress(Object.create(null))).toBe(false)
             expect(validators.isValidAddress('3PCAB4sHXgvtu5NPoen6EXR5yaNbvsEA8Fj')).toBe(true)
             expect(validators.isValidAddress('3PCAB4sHXgvtu5NPoen6EXR5yaNbvsEA8Fj', 'T'.charCodeAt(0))).toBe(false)
-            expect(validators.isValidAddress('3PCAB4sHXgvtu5NPoen6EXR5yaNbvsEA8Fj', 'W'.charCodeAt(0))).toBe(true)
-            expect(validators.isValidAddress('3PCAB4sHXgvtu5NPoen6EXR5yaNbvsEA8', 'W'.charCodeAt(0))).toBe(false)
+            expect(validators.isValidAddress('3PCAB4sHXgvtu5NPoen6EXR5yaNbvsEA8Fj', 'L'.charCodeAt(0))).toBe(true)
+            expect(validators.isValidAddress('3PCAB4sHXgvtu5NPoen6EXR5yaNbvsEA8', 'L'.charCodeAt(0))).toBe(false)
             expect(validators.isValidAddress('3PCAB4sHXgvtu5NPoen6EXR5yaNbvsEA8Fa')).toBe(false)
         })
         

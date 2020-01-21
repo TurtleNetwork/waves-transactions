@@ -86,7 +86,7 @@
 				<p>The idea is really simple - you create transaction and sign it from a minimal set of required params.
 				If you want to create <a href="https://wavesplatform.github.io/waves-transactions/interfaces/itransfertransaction.html">Transfer transaction</a> the minimum you need to provide is <strong>amount</strong> and <strong>recipient</strong> as defined in <a href="https://wavesplatform.github.io/waves-transactions/interfaces/itransferparams.html">Transfer params</a>:</p>
 				<pre><code class="language-js">
-<span class="hljs-keyword">const</span> { transfer } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>)
+<span class="hljs-keyword">const</span> { transfer } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>)
 <span class="hljs-keyword">const</span> seed = <span class="hljs-string">'some example seed phrase'</span>
 <span class="hljs-keyword">const</span> signedTranserTx = transfer({ 
   <span class="hljs-attr">amount</span>: <span class="hljs-number">1</span>,
@@ -148,7 +148,7 @@
 }</code></pre>
 				<h3 id="broadcast">Broadcast</h3>
 				<p>To send transaction you can use either node <a href="https://nodes.wavesplatform.com/api-docs/index.html#!/transactions/broadcast">REST API</a> or <a href="https://wavesplatform.github.io/waves-transactions/globals.html#broadcast">broadcast</a> helper function:</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> {broadcast} =  <span class="hljs-built_in">require</span>(<span class="hljs-string">'@waves/waves-transactions'</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> {broadcast} =  <span class="hljs-built_in">require</span>(<span class="hljs-string">'@turtlenetwork/waves-transactions'</span>);
 <span class="hljs-keyword">const</span> nodeUrl = <span class="hljs-string">'https://nodes.wavesplatform.com'</span>;
 
 broadcast(signedTx, nodeUrl).then(<span class="hljs-function"><span class="hljs-params">resp</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(resp))</code></pre>

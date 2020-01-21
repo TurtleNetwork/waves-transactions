@@ -386,7 +386,7 @@ export interface WithChainIdParam {
   /**
    * Network byte. Could be set as number or as char.
    * If set as char(string), charCodeAt(0) will be used. E.g.,
-   * 'W' will be converted to '87'
+   * 'L' will be converted to '87'
    * If not set, 87 will be used as default
    */
   chainId?: string | number
