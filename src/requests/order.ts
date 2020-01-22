@@ -81,7 +81,7 @@ export function order(paramsOrOrder: any, seed?: TSeedTypes): TOrder & WithId {
     amount,
     timestamp: t,
     expiration: expiration || t + 29 * 24 * 60 * 60 * 1000,
-    matcherFee: matcherFee || 300000,
+    matcherFee: matcherFee || 4000000,
     matcherPublicKey,
     senderPublicKey,
     proofs,

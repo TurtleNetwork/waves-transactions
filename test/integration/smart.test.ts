@@ -9,14 +9,14 @@ describe('Smart features', () => {
   const wvs = 10 ** 8
 
   beforeAll(async () => {
-    const nonce = randomHexString(6)
+    const nonce = "" //randomHexString(6)
 
     account1 = 'account1' + nonce
     account2 = 'account2' + nonce
     const mtt = massTransfer({
       transfers: [
-        { recipient: address(account1, CHAIN_ID), amount: 1 * wvs },
-        { recipient: address(account2, CHAIN_ID), amount: 1100000 }
+        { recipient: address(account1, CHAIN_ID), amount: 2000 * wvs },
+        { recipient: address(account2, CHAIN_ID), amount: 2000 * wvs }
       ]
     }, MASTER_SEED)
     await broadcast(mtt, API_BASE)

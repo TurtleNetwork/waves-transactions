@@ -2,7 +2,7 @@ import { cancelOrder, cancelSubmittedOrder, order, submitOrder } from '../../src
 import { MATCHER_PUBLIC_KEY, MATCHER_URL, MASTER_SEED, TIMEOUT } from './config'
 
 describe('Matcher requests', () => {
-  const assetId = 'GVmtioaQfyackGbeFSrLTMJsD69D8pcBe2UjAth61ny3'
+  const assetId = '2jns5J5vHfKnYoVkLAvoEzTAdKv2bDBRjS3vwoya1XMh'
 
   it('should submit and cancel order', async () => {
     const oParams = {
@@ -10,7 +10,7 @@ describe('Matcher requests', () => {
       matcherPublicKey: MATCHER_PUBLIC_KEY,
       price: 10000000000000,
       amount: 1000,
-      matcherFee: 700000,
+      matcherFee: 8000000,
       priceAsset: null,
       amountAsset: assetId
     }
@@ -31,7 +31,7 @@ describe('Matcher requests', () => {
       matcherPublicKey: MATCHER_PUBLIC_KEY,
       price: 10000000000000,
       amount: 1000,
-      matcherFee: 700000,
+      matcherFee: 8000000,
       priceAsset: null,
       amountAsset: assetId
     }
@@ -50,7 +50,7 @@ describe('Matcher requests', () => {
       matcherPublicKey: MATCHER_PUBLIC_KEY,
       //matcherPublicKey: publicKey(seed),
       orderType: 'buy',
-      matcherFee: 700000,
+      matcherFee: 8000000,
       amountAsset: assetId,
       priceAsset: null,
       amount: 1,
@@ -61,7 +61,7 @@ describe('Matcher requests', () => {
       matcherPublicKey: MATCHER_PUBLIC_KEY,
       //matcherPublicKey: publicKey(seed),
       orderType: 'sell',
-      matcherFee: 700000,
+      matcherFee: 8000000,
       amountAsset: assetId,
       priceAsset: null,
       amount: 1,

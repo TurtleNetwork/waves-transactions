@@ -26,7 +26,7 @@ export function reissue(paramsOrTx: any, seed?: TSeedTypes): IReissueTransaction
     quantity: paramsOrTx.quantity,
     reissuable: paramsOrTx.reissuable,
     chainId: networkByte(paramsOrTx.chainId, 87),
-    fee: fee(paramsOrTx,100000000),
+    fee: fee(paramsOrTx,100000000000),
     timestamp: paramsOrTx.timestamp || Date.now(),
     proofs: paramsOrTx.proofs || [],
     id: '',

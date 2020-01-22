@@ -20,14 +20,14 @@ describe('Assets', () => {
   const wvs = 10 ** 8
 
   beforeAll(async () => {
-    const nonce = randomHexString(6)
+    const nonce = ""//randomHexString(6)
 
     account1 = 'account1' + nonce
     account2 = 'account2' + nonce
     const mtt = massTransfer({
       transfers: [
-        { recipient: address(account1, CHAIN_ID), amount: 5.1 * wvs },
-        { recipient: address(account2, CHAIN_ID), amount: 1 * wvs }
+        { recipient: address(account1, CHAIN_ID), amount: 2000 * wvs},
+        { recipient: address(account2, CHAIN_ID), amount: 2000 * wvs }
       ]
     }, MASTER_SEED)
     await broadcast(mtt, API_BASE)
@@ -175,7 +175,7 @@ describe('Assets', () => {
   describe('Other', () => {
     it('Should create alias for address', async () => {
       const aliasStr: string = randomHexString(10)
-      const aliasTx = alias({ alias: aliasStr, chainId: 'T' }, account1)
+      const aliasTx = alias({ alias: aliasStr, chainId: CHAIN_ID }, account1)
       const resp = await broadcast(aliasTx, API_BASE)
       expect(resp.type).toEqual(10)
       await waitForTx(aliasTx.id, { timeout: TIMEOUT, apiBase: API_BASE })

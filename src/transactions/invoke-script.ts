@@ -31,7 +31,7 @@ export function invokeScript(paramsOrTx: any, seed?: TSeedTypes): IInvokeScriptT
     dApp: paramsOrTx.dApp,
     call: paramsOrTx.call && {args: [], ...paramsOrTx.call},
     payment: mapPayment(paramsOrTx.payment),
-    fee: fee(paramsOrTx, 1000000),
+    fee: fee(paramsOrTx, 6000000),
     feeAssetId: normalizeAssetId(paramsOrTx.feeAssetId),
     timestamp: paramsOrTx.timestamp || Date.now(),
     chainId: networkByte(paramsOrTx.chainId, 87),
