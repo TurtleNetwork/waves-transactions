@@ -20,7 +20,7 @@ steps:
   inputs:
     command: 'install'
 
-- task: CmdLine@2
+- task: Npm@1
   inputs:
-    script: 'yarn jest'
-
+    command: 'custom'
+    customCommand: 'test'
