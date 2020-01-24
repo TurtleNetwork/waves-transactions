@@ -22,5 +22,5 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'yarn jest --ci --reporters=jest-junit --reporters=default'
+    script: 'yarn jest'
 
