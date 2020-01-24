@@ -34,7 +34,7 @@ export function exchange(paramsOrTx: IExchangeTransaction, seed?: TSeedTypes): I
     amount: paramsOrTx.amount,
     buyMatcherFee: paramsOrTx.buyMatcherFee,
     sellMatcherFee: paramsOrTx.sellMatcherFee,
-    fee: fee(paramsOrTx, 100000),
+    fee: fee(paramsOrTx, 4000000),
     timestamp: paramsOrTx.timestamp || Date.now(),
     proofs: paramsOrTx.proofs || [],
     id: '',

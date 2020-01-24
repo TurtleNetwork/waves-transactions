@@ -26,7 +26,7 @@ export function massTransfer(paramsOrTx: any, seed?: TSeedTypes): IMassTransferT
     senderPublicKey,
     assetId: normalizeAssetId(paramsOrTx.assetId),
     transfers: paramsOrTx.transfers,
-    fee: fee(paramsOrTx, 100000 + Math.ceil(0.5 * paramsOrTx.transfers.length) * 100000),
+    fee: fee(paramsOrTx,  2000000 +((paramsOrTx.transfers.length+1)*2000000)/2),
     timestamp: paramsOrTx.timestamp || Date.now(),
     attachment: paramsOrTx.attachment || '',
     proofs: paramsOrTx.proofs || [],

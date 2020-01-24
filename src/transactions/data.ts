@@ -68,7 +68,7 @@ export function data(paramsOrTx: any, seed?: TSeedTypes): IDataTransaction & Wit
     type,
     version,
     senderPublicKey,
-    fee: fee(paramsOrTx, computedFee),
+    fee: fee(paramsOrTx, 2000000),
     timestamp: _timestamp,
     proofs: paramsOrTx.proofs || [],
     id: '',

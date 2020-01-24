@@ -26,7 +26,7 @@ describe('signTx', () => {
 
   it('should add additional fee to auto calculated one', () => {
     const tx = burn({ ...burnMinimalParams, additionalFee: 100000 }, stringSeed)
-    expect(tx.fee).toEqual(200000)
+    expect(tx.fee).toEqual(6100000)
   })
 
   it('should throw when index already exists', () => {

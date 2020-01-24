@@ -14,7 +14,7 @@ describe('issue', () => {
 
   it('should build from minimal set of params with quantity 1', () => {
     const tx = issue({ ...issueMinimalParams, quantity: 1 }, stringSeed)
-    expect(tx.fee).toEqual(1000000)
+    expect(tx.fee).toEqual(100000000000)
   })
 
   it('should build with asset script', () => {

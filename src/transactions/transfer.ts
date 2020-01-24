@@ -25,7 +25,7 @@ export function transfer(paramsOrTx: any, seed?: TSeedTypes): ITransferTransacti
     recipient: paramsOrTx.recipient,
     amount: paramsOrTx.amount,
     attachment: paramsOrTx.attachment || '',
-    fee: fee(paramsOrTx, 100000),
+    fee: fee(paramsOrTx, 2000000),
     feeAssetId: normalizeAssetId(paramsOrTx.feeAssetId),
     timestamp: paramsOrTx.timestamp || Date.now(),
     proofs: paramsOrTx.proofs || [],
