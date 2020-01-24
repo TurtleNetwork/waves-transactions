@@ -24,3 +24,8 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'test'
+
+- task: Npm@1
+  inputs:
+    command: 'publish'
+    publishEndpoint: 'npm turtlenetwork'
