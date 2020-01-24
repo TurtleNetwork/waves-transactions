@@ -17,9 +17,6 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: npmAuthenticate@0
-  inputs:
-    customEndpoint: 'npm turtlenetwork'
 
 - task: Npm@1
   inputs:
@@ -33,5 +30,9 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    customCommand: 'publish --access=public'
+    customCommand: 'config set access public --global'
+
+- task: Npm@1
+  inputs:
+    command: 'publish'
     publishEndpoint: 'npm turtlenetwork'
