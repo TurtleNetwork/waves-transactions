@@ -1,4 +1,6 @@
-# waves-transactions  [![npm version](https://badge.fury.io/js/%40waves%2Fwaves-transactions.svg)](https://badge.fury.io/js/%40waves%2Fwaves-transactions)
+# waves-transactions  [![npm version](https://badge.fury.io/js/%40turtlenetwork%2Fwaves-transactions.svg)](https://badge.fury.io/js/%40turtlenetwork%2Fwaves-transactions)
+
+[![Build Status](https://dev.azure.com/BlackTurtleBVBA/TurtleNetwork_OpenSource/_apis/build/status/TurtleNetwork.waves-transactions?branchName=master)](https://dev.azure.com/BlackTurtleBVBA/TurtleNetwork_OpenSource/_build/latest?definitionId=10&branchName=master)
 
 [![License][license-image]][license-url] ![Coverage badge gree][coverage-badge-green]
 
