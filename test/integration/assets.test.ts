@@ -158,7 +158,7 @@ describe('Assets', () => {
           assetId,
           quantity: '1000',
           chainId: CHAIN_ID,
-          additionalFee: 400000
+          additionalFee: 4000000
         }
         const burnTx = burn(burnParams, account1)
         const burnResp = await broadcast(burnTx, API_BASE)
