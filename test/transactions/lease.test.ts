@@ -1,7 +1,7 @@
 import { publicKey, verifySignature } from '@waves/ts-lib-crypto'
 import { lease } from '../../src'
 import { leaseMinimalParams } from '../minimalParams'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 
 describe('lease', () => {
 

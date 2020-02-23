@@ -6,7 +6,7 @@ import { signBytes, blake2b, base58Encode } from '@waves/ts-lib-crypto'
 import { addProof, getSenderPublicKey, convertToPairs, fee, normalizeAssetId } from '../generic'
 import { validate } from '../validators'
 import { TSeedTypes } from '../types'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 
 /* @echo DOCS */
 export function transfer(params: ITransferParams, seed: TSeedTypes): ITransferTransaction & WithId

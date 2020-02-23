@@ -5,7 +5,7 @@ import { TRANSACTION_TYPE, ILeaseTransaction, ILeaseParams, WithId, WithSender }
 import { signBytes, blake2b, base58Encode } from '@waves/ts-lib-crypto'
 import { addProof, convertToPairs, fee, getSenderPublicKey } from '../generic'
 import { TSeedTypes } from '../types'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 import { validate } from '../validators'
 
 
@@ -31,7 +31,7 @@ export function lease(paramsOrTx: any, seed?: TSeedTypes): ILeaseTransaction & W
   }
 
   validate.lease(tx)
-  
+
   const bytes = binary.serializeTx(tx)
 
   seedsAndIndexes.forEach(([s, i]) => addProof(tx, signBytes(s, bytes), i))

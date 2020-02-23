@@ -1,6 +1,6 @@
 {
   "name": "@turtlenetwork/waves-transactions",
-  "version": "3.25.3",
+  "version": "3.25.4",
   "description": "Build and sign(multi-sign) transactions for TurtleNetwork blockchain.",
   "keywords": [
     "waves",
@@ -57,7 +57,7 @@
     "url": "https://github.com/TurtleNetwork/waves-transactions"
   },
   "dependencies": {
-    "@waves/marshall": "^0.9.1",
+    "@turtlenetwork/marshall": "^0.10.0",
     "@waves/ts-lib-crypto": "^1.4.1",
     "axios": "^0.19.0"
   }

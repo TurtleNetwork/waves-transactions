@@ -1,7 +1,7 @@
 /**
  * @module index
  */
-import {serializePrimitives} from '@waves/marshall'
+import {serializePrimitives} from '@turtlenetwork/marshall'
 const {
   BASE58_STRING,
   BASE64_STRING,
@@ -25,7 +25,7 @@ import {
 } from '../transactions'
 import { addProof, convertToPairs, fee, getSenderPublicKey } from '../generic'
 import { TSeedTypes } from '../types'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 import { validate } from '../validators'
 
 const typeMap: any = {

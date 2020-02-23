@@ -1,7 +1,7 @@
 import { verifySignature, publicKey, } from '@waves/ts-lib-crypto'
 import { setAssetScript } from '../../src'
 import { ISetAssetScriptTransaction } from '../../src/transactions'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 
 describe('setAssetScript', () => {
 

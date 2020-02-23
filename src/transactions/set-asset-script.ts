@@ -11,7 +11,7 @@ import {
 import { signBytes, blake2b, base58Encode, } from '@waves/ts-lib-crypto'
 import { addProof, getSenderPublicKey, base64Prefix, convertToPairs, networkByte, fee } from '../generic'
 import { TSeedTypes } from '../types'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 import { validate } from '../validators'
 
 
@@ -37,9 +37,9 @@ export function setAssetScript(paramsOrTx: any, seed?: TSeedTypes): ISetAssetScr
     id: '',
     script: base64Prefix(paramsOrTx.script),
   }
-  
+
   validate.setAssetScript(tx)
-  
+
   const bytes = binary.serializeTx(tx)
 
   seedsAndIndexes.forEach(([s, i]) => addProof(tx, signBytes(s, bytes), i))

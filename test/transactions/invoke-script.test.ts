@@ -1,7 +1,7 @@
 import { publicKey, verifySignature } from '@waves/ts-lib-crypto'
 import { invokeScriptMinimalParams } from '../minimalParams'
 import { invokeScript } from '../../src/transactions/invoke-script'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 import { IInvokeScriptParams } from '../../src'
 
 describe('invokeScript', () => {

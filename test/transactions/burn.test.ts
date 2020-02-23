@@ -1,7 +1,7 @@
 import { publicKey, verifySignature } from '@waves/ts-lib-crypto'
 import { burn } from '../../src'
 import { burnMinimalParams } from '../minimalParams'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 
 describe('burn', () => {
 

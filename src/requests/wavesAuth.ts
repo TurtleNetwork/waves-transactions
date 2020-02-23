@@ -2,7 +2,7 @@
  * @module index
  */
 import { base58Encode, blake2b, concat, signBytes, address } from '@waves/ts-lib-crypto'
-import { serializePrimitives } from '@waves/marshall'
+import { serializePrimitives } from '@turtlenetwork/marshall'
 const {LONG, BASE58_STRING} = serializePrimitives
 import { getSenderPublicKey, convertToPairs } from '../generic'
 import { IWavesAuthParams, IWavesAuth } from '../transactions'
@@ -19,7 +19,7 @@ export function wavesAuth(params: IWavesAuthParams, seed?: TSeedTypes, chainId?:
   const publicKey = params.publicKey || getSenderPublicKey(seedsAndIndexes, {senderPublicKey: undefined})
   const timestamp = params.timestamp || Date.now()
   validate.wavesAuth({ publicKey, timestamp })
-  
+
   const rx = {
     hash: '',
     signature: '',
@@ -27,9 +27,9 @@ export function wavesAuth(params: IWavesAuthParams, seed?: TSeedTypes, chainId?:
     publicKey,
     address: address({ publicKey }, chainId)
   }
-  
+
   const bytes = serializeWavesAuthData(rx)
-  
+
   rx.signature = seedsAndIndexes.map(([seed]) => signBytes(seed, bytes))[0] || ''
   rx.hash =  base58Encode(blake2b(Uint8Array.from(bytes)))
 

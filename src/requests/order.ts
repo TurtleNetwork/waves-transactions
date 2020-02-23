@@ -5,7 +5,7 @@ import { signBytes, blake2b, base58Encode } from '@waves/ts-lib-crypto'
 import { addProof, getSenderPublicKey, convertToPairs, isOrder } from '../generic'
 import { IOrder, IOrderParams, TOrder, WithId, WithSender } from '../transactions'
 import { TSeedTypes } from '../types'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 import { validate } from '../validators'
 
 

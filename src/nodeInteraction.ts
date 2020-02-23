@@ -4,7 +4,7 @@
 
 import { IDataEntry, ITransaction, TTx, WithId } from './transactions'
 import axios from 'axios'
-import { json } from '@waves/marshall'
+import { json } from '@turtlenetwork/marshall'
 import { transfer } from './transactions/transfer'
 
 export type CancellablePromise<T> = Promise<T> & { cancel: () => void }

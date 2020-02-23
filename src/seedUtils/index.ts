@@ -11,7 +11,7 @@ import {
   decryptSeed,
   randomSeed
 } from '@waves/ts-lib-crypto'
-import { serializePrimitives } from '@waves/marshall'
+import { serializePrimitives } from '@turtlenetwork/marshall'
 
 export class Seed {
 

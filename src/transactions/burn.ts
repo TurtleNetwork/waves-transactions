@@ -2,7 +2,7 @@
  * @module index
  */
 import { TRANSACTION_TYPE, IBurnTransaction, IBurnParams, WithId, WithSender } from '../transactions'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 import { signBytes, blake2b, base58Encode } from '@waves/ts-lib-crypto'
 import { addProof, getSenderPublicKey, convertToPairs, networkByte, fee } from '../generic'
 import { TSeedTypes } from '../types'
@@ -30,9 +30,9 @@ export function burn(paramsOrTx: any, seed?: TSeedTypes): IBurnTransaction & Wit
     proofs: paramsOrTx.proofs || [],
     id: '',
   }
-  
+
   validate.burn(tx)
-  
+
   const bytes = binary.serializeTx(tx)
 
   seedsAndIndexes.forEach(([s, i]) => addProof(tx, signBytes(s, bytes), i))

@@ -2,9 +2,9 @@
  * @module index
  */
 import { signBytes, blake2b, base58Encode, publicKey, concat, TSeed } from '@waves/ts-lib-crypto'
-import { schemas, serializePrimitives } from '@waves/marshall'
+import { schemas, serializePrimitives } from '@turtlenetwork/marshall'
 import { IDataEntry } from '../transactions'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 import { validate } from '../validators'
 
 export interface ICustomDataV1 {

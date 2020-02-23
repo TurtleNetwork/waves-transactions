@@ -2,7 +2,7 @@
  * @module index
  */
 import axios from 'axios'
-import { binary, json } from '@waves/marshall'
+import { binary, json } from '@turtlenetwork/marshall'
 import { address, verifySignature } from '@waves/ts-lib-crypto'
 import {
   IAliasTransaction,

@@ -2,7 +2,7 @@
  * @module index
  */
 import { TRANSACTION_TYPE, ICancelLeaseTransaction, ICancelLeaseParams, WithId, WithSender } from '../transactions'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 import { signBytes, blake2b, base58Encode } from '@waves/ts-lib-crypto'
 import { addProof, getSenderPublicKey, convertToPairs, networkByte, fee } from '../generic'
 import { TSeedTypes } from '../types'
@@ -29,11 +29,11 @@ export function cancelLease(paramsOrTx: any, seed?: TSeedTypes): ICancelLeaseTra
     proofs: paramsOrTx.proofs || [],
     id: '',
   }
-  
+
   validate.cancelLease(tx)
-  
+
   const bytes = binary.serializeTx(tx)
-  
+
   seedsAndIndexes.forEach(([s, i]) => addProof(tx, signBytes(s, bytes), i))
   tx.id = base58Encode(blake2b(bytes))
 

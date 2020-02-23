@@ -5,7 +5,7 @@ import { TRANSACTION_TYPE, ISetScriptTransaction, ISetScriptParams, WithId, With
 import { signBytes, blake2b, base58Encode, } from '@waves/ts-lib-crypto'
 import { addProof, getSenderPublicKey, base64Prefix, convertToPairs, networkByte, fee } from '../generic'
 import { TSeedTypes } from '../types'
-import { binary } from '@waves/marshall'
+import { binary } from '@turtlenetwork/marshall'
 import { validate } from '../validators'
 
 
@@ -32,7 +32,7 @@ export function setScript(paramsOrTx: any, seed?: TSeedTypes): ISetScriptTransac
   }
 
   validate.setScript(tx)
-  
+
   const bytes = binary.serializeTx(tx)
 
   seedsAndIndexes.forEach(([s,i]) => addProof(tx, signBytes(s, bytes),i))
