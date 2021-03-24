@@ -2,11 +2,21 @@
  * @module index
  */
 import { TRANSACTION_TYPE, IMassTransferTransaction, IMassTransferParams, WithId, WithSender } from '../transactions'
-import { addProof, convertToPairs, fee, getSenderPublicKey, normalizeAssetId } from '../generic'
+import {
+  addProof,
+  chainIdFromRecipient,
+  convertToPairs,
+  fee,
+  getSenderPublicKey,
+  networkByte,
+  normalizeAssetId
+} from '../generic'
 import { TSeedTypes } from '../types'
 import { base58Encode, blake2b, signBytes } from '@waves/ts-lib-crypto'
 import { binary } from '@turtlenetwork/marshall'
 import { validate } from '../validators'
+import { txToProtoBytes } from '../proto-serialize'
+import { DEFAULT_VERSIONS } from '../defaultVersions';
 
 
 /* @echo DOCS */
@@ -14,11 +24,11 @@ export function massTransfer(params: IMassTransferParams, seed: TSeedTypes): IMa
 export function massTransfer(paramsOrTx: IMassTransferParams & WithSender | IMassTransferTransaction, seed?: TSeedTypes): IMassTransferTransaction & WithId
 export function massTransfer(paramsOrTx: any, seed?: TSeedTypes): IMassTransferTransaction & WithId {
   const type = TRANSACTION_TYPE.MASS_TRANSFER
-  const version = paramsOrTx.version || 1
+  const version = paramsOrTx.version || DEFAULT_VERSIONS.MASS_TRANSFER
   const seedsAndIndexes = convertToPairs(seed)
   const senderPublicKey = getSenderPublicKey(seedsAndIndexes, paramsOrTx)
 
-  if (!Array.isArray(paramsOrTx.transfers)) throw new Error('["transfers should be array"]')
+  if (!Array.isArray(paramsOrTx.transfers) || paramsOrTx.transfers.length === 0) throw new Error('Should contain at least one transfer')
 
   const tx: IMassTransferTransaction & WithId = {
     type,
@@ -30,12 +40,12 @@ export function massTransfer(paramsOrTx: any, seed?: TSeedTypes): IMassTransferT
     timestamp: paramsOrTx.timestamp || Date.now(),
     attachment: paramsOrTx.attachment || '',
     proofs: paramsOrTx.proofs || [],
-    id: '', //TODO: invalid id for masstransfer tx
+    chainId: networkByte(paramsOrTx.chainId, chainIdFromRecipient(paramsOrTx.transfers[0]?.recipient)),
+    id: '',
   }
-
   validate.massTransfer(tx)
 
-  const bytes = binary.serializeTx(tx)
+  const bytes = version > 1 ? txToProtoBytes(tx) : binary.serializeTx(tx)
 
   seedsAndIndexes.forEach(([s, i]) => addProof(tx, signBytes(s, bytes), i))
   tx.id = base58Encode(blake2b(bytes))
