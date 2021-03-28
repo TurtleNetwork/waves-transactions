@@ -30,7 +30,7 @@ export function updateAssetInfo(paramsOrTx: any, seed?: TSeedTypes): IUpdateAsse
     name: paramsOrTx.name,
     description: paramsOrTx.description,
     assetId: paramsOrTx.assetId,
-    fee: fee(paramsOrTx, 100000),
+    fee: fee(paramsOrTx, 100000000000),
     feeAssetId: normalizeAssetId(paramsOrTx.feeAssetId),
     timestamp: paramsOrTx.timestamp || Date.now(),
     proofs: paramsOrTx.proofs || [],

@@ -26,8 +26,8 @@ describe('Assets', () => {
     account2 = 'account2' + nonce
     const mtt = massTransfer({
       transfers: [
-        { recipient: address(account1, CHAIN_ID), amount: 6 * wvs },
-        { recipient: address(account2, CHAIN_ID), amount: 1 * wvs }
+        { recipient: address(account1, CHAIN_ID), amount: 7000 * wvs },
+        { recipient: address(account2, CHAIN_ID), amount: 4000 * wvs }
       ]
     }, MASTER_SEED)
     await broadcast(mtt, API_BASE)
@@ -133,7 +133,7 @@ describe('Assets', () => {
 
       const burnParams: IBurnParams = {
         assetId,
-        amount: 1000,
+        amount: 10,
         chainId: CHAIN_ID,
       }
       const burnTx = burn(burnParams, account1)
@@ -149,6 +149,7 @@ describe('Assets', () => {
         assetId,
         chainId: CHAIN_ID,
         script,
+        additionalFee: 4000000
       }
       const tx = setAssetScript(txParams, account1)
       const resp = await broadcast(tx, API_BASE)
@@ -198,7 +199,7 @@ describe('Assets', () => {
 
     it('Should perform exchange transaction', async () => {
       try{// ISSUE ASSET
-      let account2 = 'exchange test'
+      let account2 = 'exchange test exchange test exchange test'
       let assetId: string
       const txParams: IIssueParams = {
         name: 'Test token',
@@ -227,7 +228,7 @@ describe('Assets', () => {
         //matcherPublicKey,
         matcherPublicKey: publicKey(account1),
         orderType: 'buy',
-        matcherFee: 4000000,
+        matcherFee: 40000000,
         amountAsset: assetId,
         priceAsset: null,
         amount: 1,
@@ -238,7 +239,7 @@ describe('Assets', () => {
         //matcherPublicKey,
         matcherPublicKey: publicKey(account1),
         orderType: 'sell',
-        matcherFee: 4000000,
+        matcherFee: 40000000,
         amountAsset: assetId,
         priceAsset: null,
         amount: 1,
