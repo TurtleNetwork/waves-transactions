@@ -28,7 +28,7 @@ it('updateAssetInfo', async () => {
     const tx = updateAssetInfo({
         name: 'myCoin',
         description: 'description for myCoin',
-        assetId: '9Qkr6cBZmfPZosCwbnHKVHciEJgFSzahe4H9HL6avmT9',
+        assetId: 'GZajSeUtcHMeBKc1n2roepZNkryw1rPN8R5LkmKwgR4o',
         chainId: 108,
     }, masterSeed)
     console.log(JSON.stringify(tx, null, 4))
@@ -160,10 +160,10 @@ it('setScriptTest', async () => {
 it('invoke test', async () => {
 
     const invokeTx = invokeScript({
-        dApp: '3MAjRbSNjxihNaMLnhRM5L1JQtyf81AuAHA',
+        dApp: '3Xf2QqsL9fdT75xDHdYJq5uqWHuCa8GWVN9',
         call: {function: 'foo', args: []},
         chainId: 108,
-        fee: 500000,
+        fee: 6000000,
         feeAssetId: null,
     }, masterSeed)
     const {id} = await broadcast(invokeTx, nodeUrl)
@@ -207,7 +207,7 @@ it('transfer test', async () => {
         ...cond,
         chainId: 108,
         amount: 1,
-        recipient: '3Hm3LGoNPmw1VTZ3eRA2pAfeQPhnaBm6YFC',
+        recipient: '3XrUtvRZ6LLU8F2wwkuDffwTuLUNcpnjthB',
     }, masterSeed)
 
 

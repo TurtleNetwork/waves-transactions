@@ -26,6 +26,8 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'test'
+  displayName: 'Run tests'
+  continueOnError: true
 
 - task: Npm@1
   inputs:
@@ -36,7 +38,8 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'run build'
-    
+  displayName: 'Run build'
+
 - script: |
     PackageName=$(npm list --json --depth=0 | sed -n 2p | cut -d '"' -f4)
     NewPackageVersion=$(npm list --json --depth=0 | sed -n 3p | cut -d '"' -f4)
@@ -52,7 +55,7 @@ steps:
   displayName: "Publish"
   condition: |
     and(
-      ne(variables['NewPackageVersion'], variables['PublishedPackageVersion']), 
-      succeeded(), 
+      ne(variables['NewPackageVersion'], variables['PublishedPackageVersion']),
+      succeeded(),
       eq(variables['Build.SourceBranch'], 'refs/heads/master')
-    )    
+    )
