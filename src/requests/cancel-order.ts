@@ -7,13 +7,14 @@ const {BASE58_STRING} = serializePrimitives
 import { getSenderPublicKey, convertToPairs } from '../generic'
 import { ICancelOrderParams, ICancelOrder } from '../transactions'
 import { validate } from '../validators'
+import { TPrivateKey } from '../types'
 
 export const cancelOrderParamsToBytes = (cancelOrderParams:{sender: string, orderId: string}) => concat(
     BASE58_STRING(cancelOrderParams.sender),
     BASE58_STRING(cancelOrderParams.orderId)
 )
 
-export function cancelOrder(params: ICancelOrderParams, seed?: string): ICancelOrder {
+export function cancelOrder(params: ICancelOrderParams, seed?: string | TPrivateKey): ICancelOrder {
 
   const seedsAndIndexes = convertToPairs(seed)
   const senderPublicKey = params.senderPublicKey || getSenderPublicKey(seedsAndIndexes, {senderPublicKey: undefined})

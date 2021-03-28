@@ -1,8 +1,9 @@
-import { broadcast, ISetScriptParams, massTransfer, setScript, waitForTx } from '../../src'
+import { broadcast, ISetScriptParams, libs, massTransfer, setScript, waitForTx } from '../../src'
 import { address, publicKey } from '@waves/ts-lib-crypto'
 import { MASTER_SEED, CHAIN_ID, TIMEOUT, API_BASE, randomHexString } from './config'
 import { data, invokeScript } from '../../src'
 import { DATA_FIELD_TYPE } from '../../src/transactions'
+import { txToProtoBytes } from '../../src/proto-serialize'
 
 describe('Smart features', () => {
   let account1: string, account2: string
@@ -20,34 +21,51 @@ describe('Smart features', () => {
         ]
       }, MASTER_SEED)
     await broadcast(mtt, API_BASE)
-    await waitForTx(mtt.id, {apiBase: API_BASE, timeout: TIMEOUT})
+    await waitForTx(mtt.id, { apiBase: API_BASE, timeout: TIMEOUT })
     console.log('Smart test setup successful\n Accounts nonce = ' + nonce)
   }, TIMEOUT)
 
   describe('Data transactions', () => {
-    it('Should set data of all types', async () => {
+    it('Should set data of all types and delete it', async () => {
       const dataTx = data({
-          data: [{
-              key: 'int_value',
-              value: 1000
-            }, {
-              key: 'boolean_value',
-              value: true
-            }, {
-              key: 'string_value',
-              value: 'some str'
-            }, {
-              key: 'binary_value',
-              value: Uint8Array.from([1, 2, 3])
-            }, {
-              key: 'binary_value_as_base64',
-              type: DATA_FIELD_TYPE.BINARY,
-              value: 'AwZd0cYf'
-            }]
-        }, account1)
+        chainId: CHAIN_ID,
+        data: [{
+          key: 'int_value',
+          value: 1000
+        }, {
+          key: 'boolean_value',
+          value: true
+        }, {
+          key: 'string_value',
+          value: 'some str'
+        }, {
+          key: 'binary_value',
+          value: Uint8Array.from([1, 2, 3])
+        }, {
+          key: 'binary_value_as_base64',
+          type: DATA_FIELD_TYPE.BINARY,
+          value: 'AwZd0cYf'
+        }]
+      }, account1)
 
-        await broadcast(dataTx, API_BASE)
-    })
+      await broadcast(dataTx, API_BASE)
+      await waitForTx(dataTx.id, { apiBase: API_BASE, timeout: TIMEOUT })
+      const dataTxDel = data({
+        chainId: CHAIN_ID,
+        data: [{
+          key: 'int_value',
+        }, {
+          key: 'boolean_value',
+        }, {
+          key: 'string_value',
+        }, {
+          key: 'binary_value',
+        }, {
+          key: 'binary_value_as_base64',
+        }]
+      }, account1)
+      await broadcast(dataTxDel, API_BASE)
+    }, TIMEOUT)
   })
 
   describe('Account scripts', () => {
@@ -95,19 +113,24 @@ describe('Smart features', () => {
           TransferSet([ScriptTransfer(i.caller, a, unit)])
       }
       */
-        const script = 'AAIDAAAAAAAAAAAAAAABAAAAAAFhAAAAAAAAAAAKAAAAAQAAAAFpAQAAAANmb28AAAABAAAAAWEJAQAAAAtUcmFuc2ZlclNldAAAAAEJAARMAAAAAgkBAAAADlNjcmlwdFRyYW5zZmVyAAAAAwgFAAAAAWkAAAAGY2FsbGVyBQAAAAFhBQAAAAR1bml0BQAAAANuaWwAAAAAcF35+A=='
+      try {
+
+
+        const script = 'AAIDAAAAAAAAAAcIARIDCgEBAAAAAAAAAAEAAAABaQEAAAADZm9vAAAAAQAAAAFhCQEAAAALVHJhbnNmZXJTZXQAAAABCQAETAAAAAIJAQAAAA5TY3JpcHRUcmFuc2ZlcgAAAAMIBQAAAAFpAAAABmNhbGxlcgUAAAABYQUAAAAEdW5pdAUAAAADbmlsAAAAABk8wBI='
         const txParams: ISetScriptParams = {
           chainId: CHAIN_ID,
-          script,
-          additionalFee: 4000000
+          script
         }
         const tx = setScript(txParams, account2)
+        console.log(libs.crypto.base64Encode(txToProtoBytes(tx)))
         await broadcast(tx, API_BASE)
         await waitForTx(tx.id, { timeout: TIMEOUT, apiBase: API_BASE })
         console.log('dApp account script has been set')
-      },
-      TIMEOUT
-    )
+      } catch (e) {
+        console.error(e)
+        throw e
+      }
+    }, TIMEOUT)
 
     it('should call function', async () => {
         const dappAddress = address(account2, CHAIN_ID)
@@ -121,7 +144,8 @@ describe('Smart features', () => {
           },
           account1)
 
-        await broadcast(invokeTx, API_BASE)
-      }, TIMEOUT)
+      await broadcast(invokeTx, API_BASE)
+
+    }, TIMEOUT)
   })
 })

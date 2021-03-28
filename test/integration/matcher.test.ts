@@ -2,7 +2,7 @@ import { cancelOrder, cancelSubmittedOrder, order, submitOrder } from '../../src
 import { MATCHER_PUBLIC_KEY, MATCHER_URL, MASTER_SEED, TIMEOUT } from './config'
 
 describe('Matcher requests', () => {
-  const assetId = '4Lt2rxfcYJpESmdCgoMuchJpZ9D3JYHhJxFZbXLggdNP'
+  const assetId = '2kZaFxAiY7xUy11j8jZn7UwnCQneHkStNSfsmQaTbx8B'
 
   it('should submit and cancel order', async () => {
     const oParams = {
@@ -17,6 +17,27 @@ describe('Matcher requests', () => {
 
     const ord = order(oParams, MASTER_SEED)
     const submitResp = await submitOrder(ord, MATCHER_URL)
+    expect(submitResp.status).toEqual('OrderAccepted')
+
+    const co = cancelOrder({ orderId: ord.id }, MASTER_SEED)
+    const cancelResp = await cancelSubmittedOrder(co, ord.assetPair.amountAsset, ord.assetPair.priceAsset, MATCHER_URL)
+    expect(cancelResp.status).toEqual('OrderCanceled')
+  }, TIMEOUT)
+
+
+  it('should submit and cancel market order', async () => {
+    const oParams = {
+      orderType: 'buy' as 'buy',
+      matcherPublicKey: MATCHER_PUBLIC_KEY,
+      price: 100000,
+      amount: 1000,
+      matcherFee: 700000,
+      priceAsset: null,
+      amountAsset: assetId
+    }
+
+    const ord = order(oParams, MASTER_SEED)
+    const submitResp = await submitOrder(ord, {market: false, matcherUrl: MATCHER_URL})
     expect(submitResp.status).toEqual('OrderAccepted')
 
     const co = cancelOrder({ orderId: ord.id }, MASTER_SEED)

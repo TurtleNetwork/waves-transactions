@@ -14,7 +14,7 @@ export const aliasMinimalParams: IAliasParams = {
 
 export const burnMinimalParams: IBurnParams = {
   assetId: 'DT5bC1S6XfpH7s4hcQQkLj897xnnXQPNgYbohX7zZKcr',
-  quantity: 10000,
+  amount: 10000,
 }
 
 export const leaseMinimalParams: ILeaseParams = {
@@ -30,11 +30,26 @@ export const invokeScriptMinimalParams: IInvokeScriptParams = {
   dApp: '3N3Cn2pYtqzj7N9pviSesNe8KG9Cmb718Y1',
   call: {
     function: 'foo',
-    args: [{
-      type: 'binary',
-      value: 'base64:AQa3b8tH',
-    }],
-  },
+    args: [
+      {
+        type: 'binary',
+        value: 'base64:AQa3b8tH',
+      },
+      {
+        type: 'list',
+        value: [
+            {
+              type: 'string',
+              value: 'aaa'
+            },
+            {
+              type: 'string',
+              value: 'bbb'
+            },
+         ]
+      }
+    ]
+  }
 }
 
 export const massTransferMinimalParams: IMassTransferParams = {
