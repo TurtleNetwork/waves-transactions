@@ -60,7 +60,7 @@
     "url": "https://github.com/TurtleNetwork/waves-transactions"
   },
   "dependencies": {
-    "@turtlenetwork/marshall": "0.14.0",
+    "@turtlenetwork/marshall": "0.14.1",
     "@waves/node-api-js": "1.1.1",
     "@waves/protobuf-serialization": "1.2.9-SNAPSHOT",
     "@waves/ts-lib-crypto": "1.4.3",
