@@ -73,16 +73,16 @@ describe('data', () => {
     })
 
     test.each([
-        [[{key: 'bin', value: Array(100).fill(1)}], 1, 100000],
-        [[{key: 'bin', value: Array(100).fill(1)}], 2, 100000],
-        [[{key: 'bin', value: Array(1000).fill(1)}], 1, 200000],
-        [[{key: 'bin', value: Array(1000).fill(1)}], 2, 100000],
-        [[{key: 'bin', value: Array(10000).fill(1)}], 1, 1000000],
-        [[{key: 'bin', value: Array(10000).fill(1)}], 2, 1000000],
-        [Array(10).fill({key: 'bin', value: Array(10000).fill(1)}), 1, 9800000],
-        [Array(10).fill({key: 'bin', value: Array(10000).fill(1)}), 2, 9800000],
-        [Array(15).fill({key: 'bin', value: Array(10000).fill(1)}), 1, 14700000],
-        [Array(15).fill({key: 'bin', value: Array(10000).fill(1)}), 2, 14700000],
+        [[{key: 'bin', value: Array(100).fill(1)}], 1, 2000000],
+        [[{key: 'bin', value: Array(100).fill(1)}], 2, 2000000],
+        [[{key: 'bin', value: Array(1000).fill(1)}], 1, 2000000],
+        [[{key: 'bin', value: Array(1000).fill(1)}], 2, 2000000],
+        [[{key: 'bin', value: Array(10000).fill(1)}], 1, 2000000],
+        [[{key: 'bin', value: Array(10000).fill(1)}], 2, 2000000],
+        [Array(10).fill({key: 'bin', value: Array(10000).fill(1)}), 1, 2000000],
+        [Array(10).fill({key: 'bin', value: Array(10000).fill(1)}), 2, 2000000],
+        [Array(15).fill({key: 'bin', value: Array(10000).fill(1)}), 1, 2000000],
+        [Array(15).fill({key: 'bin', value: Array(10000).fill(1)}), 2, 2000000],
     ])('check fee calculation', (dataEntries, version, expectedFee) => {
         const tx = data({
             data: dataEntries,
@@ -97,7 +97,7 @@ describe('data', () => {
         [null, 1, '["data should be array"]'],
         [undefined, 1, '["data should be array"]'],
         [{key: 'str', value: 'string'}, 2, '["data should be array"]'],
-        [[{key: 'bin', value: null}], 1, 'Cannot read property'],
+        [[{key: 'bin', value: null}], 1, 'object null is not iterable (cannot read property Symbol(Symbol.iterator))'],
     ])('should throw on invalid data', (dataEntries, version, expectedError) => {
         const tx = () => data({
             data: dataEntries,
