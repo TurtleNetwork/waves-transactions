@@ -27,7 +27,6 @@ steps:
     command: 'custom'
     customCommand: 'test'
   displayName: 'Run tests'
-  continueOnError: true
 
 - task: Npm@1
   inputs:
